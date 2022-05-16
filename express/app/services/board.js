@@ -21,6 +21,13 @@ export default function BoardService() {
 
                 }
             })
+        },
+        list(_req, res){
+            Board.find()
+            .exec((err, boards)=>{
+              if(err) return res.status(400).send(err)
+              res.status(200).json({success: true, boards })
+            })
         }
     }
 }
