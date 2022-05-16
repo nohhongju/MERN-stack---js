@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oleo+Script+Swash+Caps:wght@700&display=swap');
+
+.body {
+  background: 
+    linear-gradient(#0007, #0000),
+    #123;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes firework {
+  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+@keyframes fireworkPseudo {
+  0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
+  50% { width: 0.5vmin; opacity: 1; }
+  100% { width: var(--finalSize); opacity: 0; }
+}
+
+.firework,
+.firework::before,
+.firework::after
+{
+  --initialSize: 0.5vmin;
+  --finalSize: 80vmin;
+  --particleSize: 0.2vmin;
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --y: -30vmin;
+  --x: -50%;
+  --initialY: 60vmin;
+  content: "";
+  animation: firework 4s infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, var(--y));
+  width: var(--initialSize);
+  aspect-ratio: 1;
+  background: 
+
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,
+
+    
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+    
+    /* bottom right */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+    
+    /* bottom left */
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+    
+    /* top left */
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
+    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
+    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
+    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
+    
+    /* top right */
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
+    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
+    ;
+  background-size: var(--initialSize) var(--initialSize);
+  background-repeat: no-repeat;
+}
+
+.firework::before {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+  transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg);
+  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
+  animation: fireworkPseudo 4s infinite; 
+}
+
+.firework::after {
+  --x: -50%;
+  --y: -50%;
+  --initialY: -50%;
+  transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
+  animation: fireworkPseudo 4s infinite;
+}
+
+.firework:nth-child(2) {
+  --x: 30vmin;
+}
+
+.firework:nth-child(2),
+.firework:nth-child(2)::before,
+.firework:nth-child(2)::after {
+  --color1: pink;
+  --color2: violet;
+  --color3: fuchsia;
+  --color4: orchid;
+  --color5: plum;
+  --color6: lavender;  
+  --finalSize: 40vmin;
+  left: 30%;
+  top: 60%;
+  animation-delay: -0.25s;
+}
+
+.firework:nth-child(3) {
+  --x: -30vmin;
+  --y: -50vmin;
+}
+
+.firework:nth-child(3),
+.firework:nth-child(3)::before,
+.firework:nth-child(3)::after {
+  --color1: cyan;
+  --color2: lightcyan;
+  --color3: lightblue;
+  --color4: PaleTurquoise;
+  --color5: SkyBlue;
+  --color6: lavender;
+  --finalSize: 35vmin;
+  left: 70%;
+  top: 60%;
+  animation-delay: -0.4s;
+}
+
+
+.h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 25vmin;
+  line-height: 20vmin;
+}
+
+.gradient {
+  font-family: 'Koulen', cursive;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-size: 15vmin;
+  line-height: 20vmin;
+  color: transparent;
+  background: conic-gradient(
+    #D9D7F1 12%, 
+    #BAABDA 12%, #BAABDA 33%, 
+    #E7FBBE 33%, #E7FBBE 55%, 
+    #FFCBCB 55%, #FFCBCB 70%, 
+    #B5DEFF 70%, #B5DEFF 87%, 
+    #F7D1BA 87%);
+  background-size: 50%;
+  background-clip: text;  
+  -webkit-background-clip: text;
+
+  animation: expand-rev 0.5s ease forwards;
+
+  cursor: pointer;
+}
+
+.gradient:hover {
+  animation: expand 0.5s ease forwards;
+}
+
+@keyframes expand {
+  0% {
+    background-size: 50%;
+    background-position: 0 0;
+  }
+  20% {
+    background-size: 55%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 325%;
+    background-position: -10em -4em;
+  }
+}
+
+@keyframes expand-rev {
+  0% {
+    background-size: 325%;
+    background-position: -10em -4em;
+  }
+  20% {
+    background-size: 55%;
+    background-position: 0 1em;
+  }
+  100% {
+    background-size: 50%;
+    background-position: 0 0;
+  }
+}
